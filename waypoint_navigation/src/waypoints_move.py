@@ -3,7 +3,7 @@
 import rospy
 import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
-from docking_control.srv import DockingControll
+from waypoint_navigation.srv import DockingControll
 
 class MoveNode:
     def __init__(self):
@@ -27,12 +27,12 @@ class MoveNode:
     def home_position(self, loc):
         # Moves the robot to predefined positions based on the location index
         locations = [
-            (-1.4546416903393358 -0.641329789222033 -3.1061676737127066),  # Pick Up Point
-            (2.032005622785776 -0.4296098693076119 1.5367275326098822),          # First Point
-            (1.940174193689601 1.2296491183212825 -3.119703896897448),   # Second Point
-            (-1.2378554891366695 1.1907703806554426 1.602054918556322),  # Third Point
-            (-1.2921051352450215 3.3484391575210317 -0.026924226189677943),  # Fourth Point
-            (2.2067644363104617 3.4152147306981977 0.010677733754027252)      # Drop Point
+            (-1.4546416903393358, -0.641329789222033, -3.1061676737127066),  # Pick Up Point
+            (2.032005622785776, -0.4296098693076119, 1.5367275326098822),          # First Point
+            (1.940174193689601, 1.2296491183212825, -3.119703896897448),   # Second Point
+            (-1.2378554891366695, 1.1907703806554426, 1.602054918556322),  # Third Point
+            (-1.2921051352450215, 3.3484391575210317, -0.026924226189677943),  # Fourth Point
+            (2.2067644363104617, 3.4152147306981977, 0.010677733754027252)      # Drop Point
         ]
         if 0 <= loc < len(locations):
             rospy.loginfo("Heading to location %d", loc)
